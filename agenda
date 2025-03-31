@@ -1,0 +1,55 @@
+agenda = {}
+
+def adicionar_contato():
+    nome = input("Nome: ")
+    telefone = input("Telefone: ")
+    agenda[nome] = telefone
+    print("Contato adicionado com sucesso!")
+
+def mostrar_contato():
+    print('-----Lista de contatos-----')
+    for chave, valor in agenda.items():
+        print(f'Nome: {chave}, Telefone: {valor}')
+        
+def buscar_contato():
+    nome_contato = input("Digite um nome para buscar: ")
+    for chave, valor in agenda.items(): 
+        if chave == nome_contato:
+            print(f'Nome: {chave}, Telefone: {valor}')
+            return
+
+def deletar_contato():
+    nome_contato = input('Digite um nome que deseja deletar: ')
+    for chave, valor in agenda.items():
+        if chave == nome_contato:
+            del agenda[chave]
+            print(f'Nome: {chave} removido com sucesso!')
+            return
+    
+        
+while True:
+    print("\n1. Adicionar contato")
+    print("2. Mostrar contato")
+    print("3. Buscar contato")
+    print("4. Deletar contato")
+    print("5. Sair")
+    opcao = input("Escolha uma opção: ")
+    
+    if opcao == "1":
+        adicionar_contato()
+    
+    elif opcao == "2":
+        mostrar_contato()
+        
+    elif opcao == "3":
+        buscar_contato()
+        
+    elif opcao == "4":
+        deletar_contato()
+        
+    elif opcao == "5":
+        break
+    
+    else:
+        print("Opção inválida!") 
+        
